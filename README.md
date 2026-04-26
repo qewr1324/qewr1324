@@ -3,6 +3,12 @@
   Hi There 👋
   Ia'm Amir-Hussein-Muhammadi-Fard 🐱‍🏍
 </p>
+
+<p align="center">  
+  —————————————————     —————————————————     —————————————————
+</p>
+
+
 <!--
 <p align="center">  
   <img src="https://img.shields.io/badge/Java w(ﾟДﾟ)w-black?style=flat&logoColor=whit">
