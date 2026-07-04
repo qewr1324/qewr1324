@@ -75,16 +75,16 @@ function renderGrid() {
         card.className = 'article-card';
         card.onclick = () => loadArticle(article.id);
 
-        // const imgSrc = article.thumb || 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
-        let imgSrc = article.thumb;
+        const imgSrc = article.thumb || 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
+        // let imgSrc = article.thumb;
         
-        if (imgSrc && imgSrc.startsWith('images/')) {
-            imgSrc = 'assets/' + imgSrc;
-        }
+        // if (imgSrc && imgSrc.startsWith('images/')) {
+        //     imgSrc = 'assets/' + imgSrc;
+        // }
 
-        if (!imgSrc) {
-            imgSrc = 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
-        }
+        // if (!imgSrc) {
+        //     imgSrc = 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
+        // }
 
         card.innerHTML = `
             <img src="${imgSrc}" alt="${article.title}" class="card-img" loading="lazy">
