@@ -67,12 +67,16 @@ function toggleLanguage() {
     if (currentArticleId && articleView.style.display !== 'none') {
         loadArticle(currentArticleId);
     } else {
-        // If earchhing Is Enable, Search Again.
-        if (searchQuery) {
-            searchArticles();
-        } else {
-            renderGrid();
+        // If searching Is Enable, Search Again.
+        // Clear search and render grid with new language
+        if (searchInput) {
+            searchInput.value = '';
+            searchQuery = '';
+            if (searchClear) {
+                searchClear.style.display = 'none';
+            }
         }
+        renderGrid();
     }
 }
 
@@ -145,7 +149,7 @@ function renderGrid(filteredData) {
         // if (!imgSrc) {
         //     imgSrc = 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
         // }
-
+        
         // Create Tags
         let tagsHtml = '';
         if (article.tags && Array.isArray(article.tags)) {
@@ -174,6 +178,12 @@ async function loadArticle(id) {
     if (!article) {
         articleContent.innerHTML = `<div style="color: #ef4444; padding: 20px;">❌ Article not found</div>`;
         return;
+    }
+
+    // Hide search bar in article view
+    const searchContainer = document.querySelector('.search-container');
+    if (searchContainer) {
+        searchContainer.style.display = 'none';
     }
 
     homeView.style.display = 'none';
@@ -213,6 +223,23 @@ function goHome() {
     currentArticleId = null;
     articleView.style.display = 'none';
     homeView.style.display = 'block';
+    
+    // Show search bar again
+    const searchContainer = document.querySelector('.search-container');
+    if (searchContainer) {
+        searchContainer.style.display = 'block';
+    }
+    
+    // Clear search and render grid
+    if (searchInput) {
+        searchInput.value = '';
+        searchQuery = '';
+        if (searchClear) {
+            searchClear.style.display = 'none';
+        }
+    }
+    
+    renderGrid();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
