@@ -1,0 +1,48 @@
+{
+    "articles": {
+        "en": [
+            {
+                "id": "conventional-commits",
+                "title": "Conventional Commits Standard",
+                "excerpt": "Learn how to standardize your git commits so teams and automation tools can read them.",
+                "tag": "Git & Workflow",
+                "thumb": "images/thumbnails/git-commit-thumb.png",
+                "fullImage": "images/full/git-commit-full.png",
+                "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-en.html"
+            }
+        ],
+        "fa": [
+            {
+                "id": "conventional-commits",
+                "title": "راهنمای استاندارد کامیت‌های گیت",
+                "excerpt": "یاد بگیرید چگونه کامیت‌های خود را استاندارد کنید تا تیم‌ها و ابزارهای خودکار بتوانند آنها را بخوانند.",
+                "tag": "Git & Workflow",
+                "thumb": "images/thumbnails/git-commit-thumb.png",
+                "fullImage": "images/full/git-commit-full.png",
+                "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-fa.html"
+            }
+        ]
+    },
+    "siteTexts": {
+        "en": {
+            "heroTitle": "📚 Knowledge Base",
+            "heroSub": "Tech notes, architecture, and coding patterns",
+            "navHome": "Home",
+            "navAbout": "About",
+            "navGames": "Games",
+            "backBtn": "Back to list",
+            "footerName": "You",
+            "langCode": "FA"
+        },
+        "fa": {
+            "heroTitle": "📚 دانشنامه‌ی توسعه",
+            "heroSub": "یادداشت‌های فنی، معماری و الگوهای کدنویسی",
+            "navHome": "خانه",
+            "navAbout": "درباره ما",
+            "navGames": "بازی‌ها",
+            "backBtn": "بازگشت به لیست",
+            "footerName": "شما",
+            "langCode": "EN"
+        }
+    }
+}
