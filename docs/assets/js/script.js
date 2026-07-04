@@ -1,11 +1,15 @@
 let currentLang = 'en';
 let articlesData = {};
 let siteTexts = {};
+let currentArticleId = null;
+let searchQuery = '';
 
 const gridContainer = document.getElementById('grid-container');
 const homeView = document.getElementById('home-view');
 const articleView = document.getElementById('article-view');
 const articleContent = document.getElementById('article-content');
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
 
 // Load data from routes.json
 async function loadData() {
@@ -47,24 +51,79 @@ function applyLanguage() {
     document.getElementById('nav-games').innerText = texts.navGames;
     document.getElementById('back-text').innerText = texts.backBtn;
     document.getElementById('footer-name').innerText = texts.footerName;
+    
+    // Update search placeholder
+    if (searchInput) {
+        searchInput.placeholder = texts.searchPlaceholder || 'Search by tags...';
+    }
 }
 
 // Toggle Language
 function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'fa' : 'en';
     applyLanguage();
+
+    // If Current Article, Loading This...
+    if (currentArticleId && articleView.style.display !== 'none') {
+        loadArticle(currentArticleId);
+    } else {
+        // If earchhing Is Enable, Search Again.
+        if (searchQuery) {
+            searchArticles();
+        } else {
+            renderGrid();
+        }
+    }
+}
+
+// Search Articles
+function searchArticles() {
+    searchQuery = searchInput.value.trim().toLowerCase();
+    
+    // Show/hide clear button
+    if (searchClear) {
+        searchClear.style.display = searchQuery ? 'block' : 'none';
+    }
+    
+    const data = articlesData[currentLang];
+    if (!data) return;
+
+    // If Search Is Empty, Show All
+    if (!searchQuery) {
+        renderGrid();
+        return;
+    }
+
+    // Filter Arcticles By Tags
+    const filteredData = data.filter(article => {
+        if (!article.tags || !Array.isArray(article.tags)) return false;
+        return article.tags.some(tag => tag.toLowerCase().includes(searchQuery));
+    });
+    
+    renderGrid(filteredData);
+}
+
+// Clear Search
+function clearSearch() {
+    searchInput.value = '';
+    searchQuery = '';
+    if (searchClear) {
+        searchClear.style.display = 'none';
+    }
     renderGrid();
+    searchInput.focus();
 }
 
 // Render Grid
-function renderGrid() {
+function renderGrid(filteredData) {
     gridContainer.innerHTML = '';
-    const data = articlesData[currentLang];
+    const data = filteredData || articlesData[currentLang];
     
     if (!data || data.length === 0) {
+        const noResultsText = siteTexts[currentLang]?.noResults || 'No articles found matching your search';
         gridContainer.innerHTML = `
             <div style="color: #9e9e9e; padding: 40px; text-align: center; grid-column: 1/-1;">
-                📝 No articles available in this language yet.
+                📝 ${noResultsText}
             </div>
         `;
         return;
@@ -76,6 +135,7 @@ function renderGrid() {
         card.onclick = () => loadArticle(article.id);
 
         const imgSrc = article.thumb || 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
+        
         // let imgSrc = article.thumb;
         
         // if (imgSrc && imgSrc.startsWith('images/')) {
@@ -86,12 +146,20 @@ function renderGrid() {
         //     imgSrc = 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
         // }
 
+        // Create Tags
+        let tagsHtml = '';
+        if (article.tags && Array.isArray(article.tags)) {
+            tagsHtml = '<div class="card-tags">' + 
+                article.tags.map(tag => `<span class="card-tag">#${tag}</span>`).join('') + 
+                '</div>';
+        }
+
         card.innerHTML = `
             <img src="${imgSrc}" alt="${article.title}" class="card-img" loading="lazy">
             <div class="card-content">
                 <h3>${article.title}</h3>
                 <p>${article.excerpt}</p>
-                <span class="card-tag">${article.tag}</span>
+                ${tagsHtml}
             </div>
         `;
         gridContainer.appendChild(card);
@@ -100,6 +168,8 @@ function renderGrid() {
 
 // Load Article
 async function loadArticle(id) {
+    currentArticleId = id;
+    
     const article = articlesData[currentLang]?.find(a => a.id === id);
     if (!article) {
         articleContent.innerHTML = `<div style="color: #ef4444; padding: 20px;">❌ Article not found</div>`;
@@ -117,7 +187,7 @@ async function loadArticle(id) {
         articleContent.innerHTML = `
             <div style="text-align: center; margin-bottom: 24px;">
                 <h2 style="font-size: 2rem; color: #ffffff;">${article.title}</h2>
-                <p style="color: #9e9e9e;">${article.tag}</p>
+                <p style="color: #9e9e9e;">${article.tags ? article.tags.join(' • ') : ''}</p>
             </div>
             <img src="${article.fullImage}" alt="${article.title}" class="article-full-img" loading="lazy">
             <div class="article-body">
@@ -140,6 +210,7 @@ async function loadArticle(id) {
 
 // Go Home
 function goHome() {
+    currentArticleId = null;
     articleView.style.display = 'none';
     homeView.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });

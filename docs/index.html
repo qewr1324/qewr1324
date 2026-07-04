@@ -44,6 +44,13 @@
             <p id="hero-subtitle">Tech notes, architecture, and coding patterns</p>
         </header>
 
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search by tags..."
+                oninput="searchArticles()">
+            <button id="search-clear" class="search-clear" onclick="clearSearch()" style="display: none;">✕</button>
+        </div>
+
         <!-- Cards -->
         <div id="home-view">
             <div class="article-grid" id="grid-container">

@@ -5,7 +5,13 @@
                 "id": "conventional-commits",
                 "title": "Conventional Commits Standard",
                 "excerpt": "Learn how to standardize your git commits so teams and automation tools can read them.",
-                "tag": "Git & Workflow",
+                "tags": [
+                    "Git & Workflow",
+                    "git",
+                    "workflow",
+                    "commit",
+                    "conventional"
+                ],
                 "thumb": "images/thumbnails/git-commit-thumb.png",
                 "fullImage": "images/full/git-commit-full.png",
                 "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-en.html"
@@ -16,7 +22,13 @@
                 "id": "conventional-commits",
                 "title": "راهنمای استاندارد کامیت‌های گیت",
                 "excerpt": "یاد بگیرید چگونه کامیت‌های خود را استاندارد کنید تا تیم‌ها و ابزارهای خودکار بتوانند آنها را بخوانند.",
-                "tag": "Git & Workflow",
+                "tags": [
+                    "Git & Workflow",
+                    "git",
+                    "workflow",
+                    "commit",
+                    "conventional"
+                ],
                 "thumb": "images/thumbnails/git-commit-thumb.png",
                 "fullImage": "images/full/git-commit-full.png",
                 "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-fa.html"
@@ -32,7 +44,9 @@
             "navGames": "Games",
             "backBtn": "Back to list",
             "footerName": "GhurbeSABZI 👾",
-            "langCode": "FA"
+            "langCode": "FA",
+            "searchPlaceholder": "Search by tags...",
+            "noResults": "No articles found matching your search"
         },
         "fa": {
             "heroTitle": "📚 دانشنامه‌ی توسعه",
@@ -42,7 +56,9 @@
             "navGames": "بازی‌ها",
             "backBtn": "بازگشت به لیست",
             "footerName": "GhurbeSABZI 👾",
-            "langCode": "EN"
+            "langCode": "EN",
+            "searchPlaceholder": "جستجو بر اساس تگ‌ها...",
+            "noResults": "هیچ مقاله‌ای با جستجوی شما پیدا نشد"
         }
     }
 }

@@ -100,6 +100,55 @@ body[dir="rtl"] {
     color: var(--accent-blue);
 }
 
+/* Search Bar */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 50px 14px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-clear {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.search-clear:hover {
+    color: var(--text-heading);
+    background: var(--bg-hover);
+}
+
 /* Orginal Container */
 .container {
     max-width: 1200px;
@@ -109,7 +158,7 @@ body[dir="rtl"] {
 
 .hero-section {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     padding-top: 40px;
 }
 
@@ -148,6 +197,10 @@ body[dir="rtl"] {
     border-color: var(--accent-blue);
 }
 
+.article-card.hidden {
+    display: none;
+}
+
 .card-img {
     width: 100%;
     height: 180px;
@@ -173,15 +226,26 @@ body[dir="rtl"] {
     line-height: 1.6;
 }
 
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
 .card-tag {
     display: inline-block;
-    margin-top: 16px;
     padding: 4px 14px;
     background: rgba(59, 130, 246, 0.15);
     color: var(--accent-blue);
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    transition: all 0.2s;
+}
+
+.card-tag:hover {
+    background: rgba(59, 130, 246, 0.25);
 }
 
 /* Article View */
@@ -295,5 +359,9 @@ body[dir="rtl"] {
 
     #article-view {
         padding: 20px;
+    }
+
+    .search-container {
+        margin: 0 20px 30px 20px;
     }
 }
