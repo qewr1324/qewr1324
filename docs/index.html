@@ -4,137 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تکنوتک | مقالات فنی</title>
 
-    <!-- ====== SEO Meta Tags ====== -->
-    <title>وب‌سایت حرفه‌ای من | صفحه اصلی</title>
-    <meta name="description"
-        content="وب‌سایت شخصی و حرفه‌ای با طراحی مدرن و واکنش‌گرا. خدمات طراحی وب، مشاوره و توسعه.">
-    <meta name="keywords" content="طراحی وب, توسعه سایت, مشاوره, برنامه‌نویسی, وب‌سایت حرفه‌ای">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://username.github.io/">
+    <!-- فونت وزیرمتن برای زیبایی فارسی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"
+        type="text/css" />
 
-    <!-- ====== Open Graph ====== -->
-    <meta property="og:title" content="وب‌سایت حرفه‌ای من">
-    <meta property="og:description" content="طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://username.github.io/">
-    <meta property="og:image" content="https://username.github.io/images/logo.png">
-
-    <!-- ====== Bootstrap CSS ====== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- ====== Bootstrap Icons ====== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- ====== Private Style ====== -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- لینک به فایل CSS خارجی -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!-- ============================================ -->
-    <!-- (Navbar)                                     -->
-    <!-- ============================================ -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="لوگو" height="40" class="d-inline-block align-text-top">
-                وب‌سایت من
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">خانه</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" hx-get="fragments/about.html"
-                            hx-target="#content">درباره ما</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" hx-get="fragments/services.html"
-                            hx-target="#content">خدمات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="elements.html">نمونه کارها</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" hx-get="fragments/contact.html"
-                            hx-target="#content">تماس با ما</a></li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="جستجو..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">جستجو</button>
-                </form>
+
+    <div class="container">
+        <header>
+            <h1>📚 دانشنامه‌ی توسعه</h1>
+            <p>یادداشت‌های فنی، معماری و الگوهای کدنویسی</p>
+        </header>
+
+        <!-- لیست کارت‌های اصلی -->
+        <div id="home-view">
+            <div class="article-grid" id="grid-container">
+                <!-- کارت‌ها توسط جاوا اسکریپت اینجا تزریق می‌شوند -->
             </div>
         </div>
-    </nav>
 
-    <!-- ============================================ -->
-    <!-- HTMX          -->
-    <!-- ============================================ -->
-    <main id="content">
-        <!-- هدر اصلی (Hero Section) -->
-        <section class="hero-section text-white text-center py-5">
-            <div class="container">
-                <h1 class="display-3 fw-bold">به وب‌سایت من خوش آمدید</h1>
-                <p class="lead fs-4">طراحی و توسعه وب‌سایت‌های مدرن، واکنش‌گرا و بهینه</p>
-                <a href="elements.html" class="btn btn-primary btn-lg mt-3">
-                    <i class="bi bi-eye"></i> مشاهده نمونه کارها
-                </a>
-                <a href="#" class="btn btn-outline-light btn-lg mt-3" hx-get="fragments/contact.html"
-                    hx-target="#content">
-                    <i class="bi bi-envelope"></i> تماس با من
-                </a>
-            </div>
-        </section>
-
-        <!-- کارت‌های ویژگی‌ها -->
-        <section class="container my-5">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <i class="bi bi-code-square display-4 text-primary"></i>
-                            <h5 class="card-title mt-3">توسعه وب</h5>
-                            <p class="card-text">طراحی و پیاده‌سازی وب‌سایت‌های حرفه‌ای با آخرین فناوری‌ها</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <i class="bi bi-phone display-4 text-success"></i>
-                            <h5 class="card-title mt-3">واکنش‌گرا</h5>
-                            <p class="card-text">نمایش عالی در تمام دستگاه‌ها، از موبایل تا دسکتاپ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm text-center">
-                        <div class="card-body">
-                            <i class="bi bi-search display-4 text-warning"></i>
-                            <h5 class="card-title mt-3">بهینه برای سئو</h5>
-                            <p class="card-text">ساختار مناسب برای موتورهای جستجو و سرعت بالا</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ============================================ -->
-    <!-- Footer                                       -->
-    <!-- ============================================ -->
-    <footer class="bg-dark text-white text-center py-4 mt-5">
-        <div class="container">
-            <p class="mb-2">© 2026 وب‌سایت من. تمامی حقوق محفوظ است.</p>
-            <div>
-                <a href="#" class="text-white me-3"><i class="bi bi-github"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+        <!-- بخش نمایش مقاله کامل -->
+        <div id="article-view">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست</button>
+            <div id="article-content">
+                <!-- محتوای مقاله اینجا لود می‌شود -->
             </div>
         </div>
-    </footer>
 
-    <!-- ============================================ -->
-    <!-- Libraries                                    -->
-    <!-- ============================================ -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script src="assets/js/main.js"></script>
+        <div class="footer">
+            In Love With Deepseek<br>
+            <span style="font-size: 0.8rem; margin-top: 5px; display: block;">ساخته شده با ❤️ توسط
+                <strong>شما</strong></span>
+        </div>
+    </div>
+
+    <!-- لینک به فایل JS خارجی (قبل از بسته شدن تگ body برای بهبود سرعت لود) -->
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
