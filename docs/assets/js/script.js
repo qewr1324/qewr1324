@@ -5,8 +5,8 @@ const articlesData = {
             title: "Conventional Commits Standard",
             excerpt: "Learn how to standardize your git commits so teams and automation tools can read them.",
             tag: "Git & Workflow",
-            thumb: "images/thumbnails/git-commit-thumb.png",
-            fullImage: "images/full/git-commit-full.png", 
+            thumb: "/images/thumbnails/git-commit-thumb.png",
+            fullImage: "/images/full/git-commit-full.png", 
             htmlFile: "assets/html/articles/conventional-commits/conventional-commits-en.html"
         },
 
@@ -18,8 +18,8 @@ const articlesData = {
             title: "راهنمای استاندارد کامیت‌های گیت",
             excerpt: "یاد بگیرید چگونه کامیت‌های خود را استاندارد کنید تا تیم‌ها و ابزارهای خودکار بتوانند آنها را بخوانند.",
             tag: "Git & Workflow",
-            thumb: "images/thumbnails/git-commit-thumb.png",
-            fullImage: "images/full/git-commit-full.png", 
+            thumb: "/images/thumbnails/git-commit-thumb.png",
+            fullImage: "/images/full/git-commit-full.png", 
             htmlFile: "assets/html/articles/conventional-commits/conventional-commits-fa.html"
         },
 
