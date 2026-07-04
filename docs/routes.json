@@ -15,6 +15,21 @@
                 "thumb": "images/thumbnails/git-commit-thumb.png",
                 "fullImage": "images/full/git-commit-full.png",
                 "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-en.html"
+            },
+            {
+                "id": "java-exception",
+                "title": "Java Exception Hierarchy",
+                "excerpt": "A complete guide to Checked vs Unchecked exceptions in Java, with examples and best practices.",
+                "tags": [
+                    "Java",
+                    "Exception",
+                    "Error Handling",
+                    "Checked & Unchecked",
+                    "OOP"
+                ],
+                "thumb": "images/thumbnails/java-exception-thumb.png",
+                "fullImage": "images/full/java-exception-full.png",
+                "htmlFile": "assets/html/articles/java-exception/java-exception-en.html"
             }
         ],
         "fa": [
@@ -32,6 +47,21 @@
                 "thumb": "images/thumbnails/git-commit-thumb.png",
                 "fullImage": "images/full/git-commit-full.png",
                 "htmlFile": "assets/html/articles/conventional-commits/conventional-commits-fa.html"
+            },
+            {
+                "id": "java-exception",
+                "title": "سلسله‌مراتب استثناها در جاوا",
+                "excerpt": "راهنمای کامل استثناهای بررسی‌شده و بررسی‌نشده در جاوا، همراه با مثال و بهترین روش‌ها.",
+                "tags": [
+                    "Java",
+                    "Exception",
+                    "Error Handling",
+                    "Checked & Unchecked",
+                    "OOP"
+                ],
+                "thumb": "images/thumbnails/java-exception-thumb.png",
+                "fullImage": "images/full/java-exception-full.png",
+                "htmlFile": "assets/html/articles/java-exception/java-exception-fa.html"
             }
         ]
     },
