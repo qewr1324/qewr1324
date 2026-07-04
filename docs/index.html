@@ -1,50 +1,75 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تکنوتک | مقالات فنی</title>
+    <title>DevNotes | Technical Blog</title>
 
-    <!-- فونت وزیرمتن برای زیبایی فارسی -->
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"
-        type="text/css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Vazirmatn:wght@300;400;700&display=swap"
+        rel="stylesheet">
 
-    <!-- لینک به فایل CSS خارجی -->
+    <!-- Intellij Syntax Highligh -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">DevNotes</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                <li><a href="#" onclick="goHome()" id="nav-home">Home</a></li>
+                <li><a href="#" id="nav-about">About</a></li>
+                <li><a href="#" id="nav-games">Games</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Language Button -->
+                <button id="lang-toggle" class="lang-btn" onclick="toggleLanguage()">EN</button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
-            <h1>📚 دانشنامه‌ی توسعه</h1>
-            <p>یادداشت‌های فنی، معماری و الگوهای کدنویسی</p>
+        <header class="hero-section">
+            <h1 id="hero-title">📚 Knowledge Base</h1>
+            <p id="hero-subtitle">Tech notes, architecture, and coding patterns</p>
         </header>
 
-        <!-- لیست کارت‌های اصلی -->
+        <!-- Cards -->
         <div id="home-view">
             <div class="article-grid" id="grid-container">
-                <!-- کارت‌ها توسط جاوا اسکریپت اینجا تزریق می‌شوند -->
+                <!-- Injection -->
             </div>
         </div>
 
-        <!-- بخش نمایش مقاله کامل -->
-        <div id="article-view">
-            <button class="back-btn" onclick="goBack()">← بازگشت به لیست</button>
+        <!-- Articles -->
+        <div id="article-view" style="display: none;">
+            <button class="back-btn" onclick="goHome()">← <span id="back-text">Back to list</span></button>
             <div id="article-content">
-                <!-- محتوای مقاله اینجا لود می‌شود -->
+                <!-- Loading... -->
             </div>
         </div>
 
         <div class="footer">
             In Love With Deepseek<br>
-            <span style="font-size: 0.8rem; margin-top: 5px; display: block;">ساخته شده با ❤️ توسط
-                <strong>شما</strong></span>
+            <span style="font-size: 0.8rem; margin-top: 5px; display: block;">Built with ❤️ by <strong
+                    id="footer-name">You</strong></span>
         </div>
     </div>
 
-    <!-- لینک به فایل JS خارجی (قبل از بسته شدن تگ body برای بهبود سرعت لود) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+
     <script src="assets/js/script.js"></script>
 </body>
 

@@ -1,0 +1,35 @@
+<div class="article-body" dir="ltr">
+    <h3>Why Conventional Commits?</h3>
+    <p>
+        The <strong>Conventional Commits</strong> specification is a lightweight convention on top of commit messages.
+        It provides an easy set of rules for creating an explicit commit history, making it easier to write automated
+        tools on top of it.
+    </p>
+
+    <h4>Commit Structure</h4>
+    <pre><code class="language-bash">
+&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+
+&lt;body&gt;
+
+&lt;footer&gt;
+    </code></pre>
+
+    <h4>Common Types</h4>
+    <ul>
+        <li><code>feat</code>: A new feature.</li>
+        <li><code>fix</code>: A bug fix.</li>
+        <li><code>docs</code>: Documentation only changes.</li>
+        <li><code>style</code>: Changes that do not affect the meaning of the code.</li>
+        <li><code>refactor</code>: A code change that neither fixes a bug nor adds a feature.</li>
+        <li><code>test</code>: Adding missing tests or correcting existing tests.</li>
+        <li><code>chore</code>: Maintenance tasks (updating packages, CI/CD config).</li>
+    </ul>
+
+    <h4>Practical Example</h4>
+    <blockquote>
+        <code style="font-weight: bold;">feat(auth): add two-factor authentication</code><br>
+        Implement TOTP-based F2A for user login security.<br>
+        <code>Closes #456</code>
+    </blockquote>
+</div>
