@@ -1,0 +1,11 @@
+# ====== دستورات برای خزنده‌های گوگل ======
+
+User-agent: *
+Allow: /
+
+# جلوگیری از ایندکس شدن فایل‌های موقت
+Disallow: /assets/
+Disallow: /images/
+
+# نقشه سایت
+Sitemap: https://qewr1324.github.io/sitemap.xml
