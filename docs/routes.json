@@ -30,6 +30,23 @@
                 "thumb": "images/thumbnails/java-exception-thumb.png",
                 "fullImage": "images/full/java-exception-full.png",
                 "htmlFile": "assets/html/articles/java-exception/java-exception-en.html"
+            },
+            {
+                "id": "java-roadmap",
+                "title": "Ultimate Java Roadmap: From Zero to Infinity",
+                "excerpt": "A complete step-by-step roadmap to become a professional Java developer (Junior to Senior/Expert).",
+                "tags": [
+                    "Java",
+                    "Roadmap",
+                    "Spring Boot",
+                    "Architecture",
+                    "DevOps",
+                    "Backend",
+                    "Microservices"
+                ],
+                "thumb": "images/thumbnails/java-roadmap-thumb-v2.png",
+                "fullImage": "images/full/java-roadmap-full-v2.png",
+                "htmlFile": "assets/html/articles/java-roadmap/java-roadmap-en.html"
             }
         ],
         "fa": [
@@ -62,6 +79,23 @@
                 "thumb": "images/thumbnails/java-exception-thumb.png",
                 "fullImage": "images/full/java-exception-full.png",
                 "htmlFile": "assets/html/articles/java-exception/java-exception-fa.html"
+            },
+            {
+                "id": "java-roadmap",
+                "title": "نقشه‌ی راه جامع جاوا: از صفر تا بی‌نهایت",
+                "excerpt": "یک نقشه‌ی راه گام‌به‌گام و کامل برای تبدیل شدن به یک توسعه‌دهنده حرفه‌ای جاوا (از جونیور تا ارشد).",
+                "tags": [
+                    "Java",
+                    "Roadmap",
+                    "Spring Boot",
+                    "Architecture",
+                    "DevOps",
+                    "Backend",
+                    "Microservices"
+                ],
+                "thumb": "images/thumbnails/java-roadmap-thumb-v2.png",
+                "fullImage": "images/full/java-roadmap-full-v2.png",
+                "htmlFile": "assets/html/articles/java-roadmap/java-roadmap-fa.html"
             }
         ]
     },
