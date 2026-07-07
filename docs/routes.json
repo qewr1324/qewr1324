@@ -44,8 +44,8 @@
                     "Backend",
                     "Microservices"
                 ],
-                "thumb": "images/thumbnails/java-roadmap-thumb-v2.png",
-                "fullImage": "images/full/java-roadmap-full-v2.png",
+                "thumb": "images/thumbnails/java-roadmap-thumb.png",
+                "fullImage": "images/full/java-roadmap-full.png",
                 "htmlFile": "assets/html/articles/java-roadmap/java-roadmap-en.html"
             }
         ],
@@ -93,8 +93,8 @@
                     "Backend",
                     "Microservices"
                 ],
-                "thumb": "images/thumbnails/java-roadmap-thumb-v2.png",
-                "fullImage": "images/full/java-roadmap-full-v2.png",
+                "thumb": "images/thumbnails/java-roadmap-thumb.png",
+                "fullImage": "images/full/java-roadmap-full.png",
                 "htmlFile": "assets/html/articles/java-roadmap/java-roadmap-fa.html"
             }
         ]
