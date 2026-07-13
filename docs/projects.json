@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "icon": "fa-graduation-cap",
+            "label": "کارشناسی کامپیوتر",
+            "value": "دانشگاه آزاد"
+        },
+        {
+            "icon": "fa-briefcase",
+            "label": "پروژه‌ها",
+            "value": "سیستم فروش + وبلاگ"
+        },
+        {
+            "icon": "fa-heart",
+            "label": "علاقه",
+            "value": "کدنویسی تمیز · معماری میکروسرویس"
+        }
+    ]
+}

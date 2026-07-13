@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Cursors - Java Developer Resume</title>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text: #e0e0e0;
+            --accent: #0f3460;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Courier New', monospace;
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 2px solid #2a2a4a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            border-color: #4a9eff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(74, 158, 255, 0.2);
+        }
+
+        .skill-card .icon-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card .cursor-icon {
+            width: 64px;
+            height: 64px;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover .cursor-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 16px rgba(100, 200, 255, 0.6));
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .skill-card .percent-bar {
+            height: 6px;
+            background: #2a2a4a;
+            border-radius: 3px;
+            margin: 0.8rem 0;
+            overflow: hidden;
+        }
+
+        .skill-card .percent-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .skill-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-card .tag {
+            background: #2a2a4a;
+            color: #aaa;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            border: 1px solid #3a3a5a;
+        }
+
+        /* Custom Cursor Overlay */
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            width: 48px;
+            height: 48px;
+            transform: translate(-10px, -10px);
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+        }
+
+        .custom-cursor.active {
+            opacity: 1;
+        }
+
+        .custom-cursor.hovering {
+            transform: translate(-10px, -10px) scale(1.3);
+            filter: drop-shadow(0 0 12px rgba(255, 200, 50, 0.8));
+        }
+
+        /* Percent colors per skill */
+        .percent-java {
+            background: linear-gradient(90deg, #f89820, #e76f00);
+        }
+
+        .percent-spring {
+            background: linear-gradient(90deg, #6db33f, #5a9e2f);
+        }
+
+        .percent-servlet {
+            background: linear-gradient(90deg, #007396, #005a75);
+        }
+
+        .percent-springcore {
+            background: linear-gradient(90deg, #5fbcd3, #3a9ab8);
+        }
+
+        .percent-springmvc {
+            background: linear-gradient(90deg, #8bc34a, #6d9b3a);
+        }
+
+        .percent-springrest {
+            background: linear-gradient(90deg, #64b5f6, #4296e0);
+        }
+
+        .percent-springboot {
+            background: linear-gradient(90deg, #6db33f, #4caf50);
+        }
+
+        .percent-postgresql {
+            background: linear-gradient(90deg, #336791, #1e4d6e);
+        }
+
+        .percent-html {
+            background: linear-gradient(90deg, #e34c26, #c13a1a);
+        }
+
+        .percent-js {
+            background: linear-gradient(90deg, #f7df1e, #d4b800);
+        }
+
+        .percent-nodejs {
+            background: linear-gradient(90deg, #339933, #267326);
+        }
+
+        .percent-linux {
+            background: linear-gradient(90deg, #fcc624, #e0b000);
+        }
+
+        .percent-docker {
+            background: linear-gradient(90deg, #2496ed, #1a7ac0);
+        }
+
+        .percent-git {
+            background: linear-gradient(90deg, #f05032, #d13a20);
+        }
+
+        .percent-maven {
+            background: linear-gradient(90deg, #c71a36, #a0152a);
+        }
+
+        .percent-test {
+            background: linear-gradient(90deg, #25c2a0, #1a9e80);
+        }
+
+        .percent-vscode {
+            background: linear-gradient(90deg, #007acc, #005a9e);
+        }
+
+        .percent-bash {
+            background: linear-gradient(90deg, #4eaa25, #3a8c1a);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎮 PIXEL CURSORS - SKILL SET</h1>
+
+    <div class="skills-grid" id="skillsGrid"></div>
+
+    <!-- Custom Cursor Element -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <script>
+        const skillsData = {
+            "skills": [
+                { "name": "Java SE", "percent": 80, "icon": "java", "titles": ["Condition", "OOP", "JDBC", "Collections", "Streams", "Lambda", "Multithreading"], "color": "#f89820" },
+                { "name": "Spring", "percent": 70, "icon": "spring", "titles": ["IoC", "DI", "AOP", "Spring Data", "Security", "Testing"], "color": "#6db33f" },
+                { "name": "Servlet/JSP", "percent": 65, "icon": "servlet", "titles": ["Servlets", "JSP", "Filters", "Listeners", "Session Mgmt"], "color": "#007396" },
+                { "name": "Spring Core", "percent": 75, "icon": "springcore", "titles": ["IoC Container", "Bean Lifecycle", "XML Config", "Annotation Config", "Component Scan"], "color": "#5fbcd3" },
+                { "name": "Spring MVC", "percent": 72, "icon": "springmvc", "titles": ["Controllers", "View Resolvers", "Model", "Data Binding", "Validation"], "color": "#8bc34a" },
+                { "name": "Spring REST", "percent": 68, "icon": "springrest", "titles": ["REST APIs", "JSON", "Request/Response", "Error Handling", "Swagger"], "color": "#64b5f6" },
+                { "name": "Spring Boot", "percent": 78, "icon": "springboot", "titles": ["Auto-Configuration", "Starter POMs", "Actuator", "Boot Test", "Profiles"], "color": "#6db33f" },
+                { "name": "PostgreSQL", "percent": 60, "icon": "postgresql", "titles": ["CRUD", "Joins", "Indexes", "Transactions", "Views", "Stored Procedures"], "color": "#336791" },
+                { "name": "HTML/CSS", "percent": 85, "icon": "html", "titles": ["HTML5 Semantic", "CSS3 Flexbox", "Responsive", "Animations"], "color": "#e34c26" },
+                { "name": "JavaScript", "percent": 60, "icon": "js", "titles": ["ES6+", "Promises", "Async/Await"], "color": "#f7df1e" },
+                { "name": "Node.js", "percent": 55, "icon": "nodejs", "titles": ["http", "restAPI", "NPM", "Express.js", "Middleware"], "color": "#339933" },
+                { "name": "Linux", "percent": 50, "icon": "linux", "titles": ["Command Line", "Permissions", "Bash Scripting", "SSH", "Process Mgmt"], "color": "#fcc624" },
+                { "name": "Docker", "percent": 45, "icon": "docker", "titles": ["Dockerfile", "Image", "Container", "Compose", "Volume", "Network"], "color": "#2496ed" },
+                { "name": "Git", "percent": 80, "icon": "git", "titles": ["config", "stage", "commit", "branch", "fork", "push", "pull", "PR"], "color": "#f05032" },
+                { "name": "Maven", "percent": 90, "icon": "maven", "titles": ["pom", "run", "package", "clean", "test", "..."], "color": "#c71a36" },
+                { "name": "Test", "percent": 70, "icon": "test", "titles": ["JUnit"], "color": "#25c2a0" },
+                { "name": "VSCode", "percent": 90, "icon": "vscode", "titles": ["config", "database", "shortcuts", "debug"], "color": "#007acc" },
+                { "name": "Bash", "percent": 90, "icon": "bash", "titles": ["config", "database", "shortcuts", "debug"], "color": "#4eaa25" }
+            ]
+        };
+
+        // Pixel Cursor SVGs - exactly in the style you provided
+        const cursorSVGs = {
+            // 1. Java SE - Coffee Cup with steam
+            java: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 85 L25 30 L70 30 L70 85 Z M30 30 L30 25 M40 30 L40 20 M50 30 L50 20 M60 30 L60 25 M70 35 L85 35 L85 65 L70 65 Z" fill="#6F4E37" stroke="#3B271D" stroke-width="2"/>
+                    <path d="M30 25 L30 15 L35 12 L40 20 L45 10 L50 18 L55 8 L60 20 L65 25" fill="none" stroke="#f89820" stroke-width="2.5"/>
+                    <circle cx="47" cy="55" r="8" fill="#3B271D"/>
+                    <path d="M15 10 L82 10" stroke="#f89820" stroke-width="3"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 100 L25 25 L90 25 L90 100 Z M30 25 L30 15 M45 25 L45 10 M60 25 L60 10 M75 25 L75 15 M90 30 L108 30 L108 70 L90 70 Z" fill="#6F4E37" stroke="#f89820" stroke-width="3"/>
+                    <path d="M30 10 L30 0 L38 -5 L45 5 L52 -8 L60 3 L68 -10 L75 5 L90 15" fill="none" stroke="#ff6600" stroke-width="3"/>
+                    <circle cx="55" cy="60" r="12" fill="#3B271D"/>
+                    <path d="M90 50 L80 50 L80 55 L90 55" fill="#f89820"/>
+                </svg>`
+            },
+            // 2. Spring - Leaf
+            spring: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48 20 L70 50 L55 75 L30 70 L20 40 Z" fill="#6db33f" stroke="#4a7a2e" stroke-width="2"/>
+                    <path d="M48 20 L48 50 M35 45 L55 55" stroke="#4a7a2e" stroke-width="1.5"/>
+                    <path d="M48 20 Q40 10 35 5" fill="none" stroke="#8bc34a" stroke-width="3"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M58 15 L90 55 L70 90 L30 85 L15 45 Z" fill="#8bc34a" stroke="#6db33f" stroke-width="3"/>
+                    <path d="M58 15 L58 55 M40 50 L70 65 M30 40 L50 30" stroke="#4a7a2e" stroke-width="1.5"/>
+                    <circle cx="58" cy="15" r="6" fill="#fff"/>
+                </svg>`
+            },
+            // 3. Servlet/JSP - Web Spider
+            servlet: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 20 L70 20 M20 50 L70 50 M20 80 L70 80 M20 20 L20 80 M45 20 L45 80 M70 20 L70 80" stroke="#007396" stroke-width="2"/>
+                    <circle cx="45" cy="50" r="10" fill="#007396"/>
+                    <circle cx="20" cy="20" r="4" fill="#fff"/>
+                    <circle cx="70" cy="20" r="4" fill="#fff"/>
+                    <circle cx="20" cy="80" r="4" fill="#fff"/>
+                    <circle cx="70" cy="80" r="4" fill="#fff"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 15 L95 15 M15 50 L95 50 M15 85 L95 85 M15 15 L15 85 M55 15 L55 85 M95 15 L95 85" stroke="#00bcd4" stroke-width="2.5"/>
+                    <circle cx="55" cy="50" r="14" fill="#00bcd4"/>
+                    <circle cx="15" cy="15" r="5" fill="#fff"/>
+                    <circle cx="95" cy="15" r="5" fill="#fff"/>
+                    <circle cx="15" cy="85" r="5" fill="#fff"/>
+                    <circle cx="95" cy="85" r="5" fill="#fff"/>
+                </svg>`
+            },
+            // 4. Spring Core - Crystal Cube
+            springcore: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 25 L65 15 L80 40 L50 50 Z" fill="#5fbcd3" stroke="#3a9ab8" stroke-width="2"/>
+                    <path d="M35 25 L35 55 L50 65 L50 50 Z" fill="#8ad4e8" stroke="#3a9ab8" stroke-width="2"/>
+                    <path d="M50 50 L80 40 L80 70 L50 80 Z" fill="#3a9ab8" stroke="#2a8aa8" stroke-width="2"/>
+                    <circle cx="52" cy="48" r="5" fill="#fff" opacity="0.8"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 30 L80 15 L100 45 L60 60 Z" fill="#5fbcd3" stroke="#fff" stroke-width="2"/>
+                    <path d="M40 30 L40 65 L60 78 L60 60 Z" fill="#8ad4e8" stroke="#fff" stroke-width="2"/>
+                    <path d="M60 60 L100 45 L100 80 L60 95 Z" fill="#3a9ab8" stroke="#fff" stroke-width="2"/>
+                    <circle cx="65" cy="55" r="8" fill="#fff"/>
+                </svg>`
+            },
+            // 5. Spring MVC - Layers
+            springmvc: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 30 L80 30 L80 45 L20 45 Z" fill="#e91e63" stroke="#c0184a" stroke-width="2"/>
+                    <path d="M25 50 L75 50 L75 65 L25 65 Z" fill="#2196f3" stroke="#1976d2" stroke-width="2"/>
+                    <path d="M30 70 L70 70 L70 85 L30 85 Z" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 25 L100 25 L100 50 L15 50 Z" fill="#e91e63" stroke="#fff" stroke-width="2"/>
+                    <path d="M20 55 L90 55 L90 80 L20 80 Z" fill="#2196f3" stroke="#fff" stroke-width="2"/>
+                    <path d="M25 85 L80 85 L80 110 L25 110 Z" fill="#4caf50" stroke="#fff" stroke-width="2"/>
+                </svg>`
+            },
+            // 6. Spring REST - Cloud with Lightning
+            springrest: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 40 Q20 20 45 20 Q55 10 70 20 Q90 20 90 40 Q90 55 70 55 L20 55 Q15 55 15 45 Z" fill="#64b5f6" stroke="#4296e0" stroke-width="2"/>
+                    <path d="M45 55 L35 85 L50 65 L55 85 L65 55" fill="#ffc107" stroke="#ff8f00" stroke-width="2"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 50 Q15 25 45 25 Q55 10 75 25 Q100 25 100 50 Q100 70 75 70 L15 70 Q10 70 10 55 Z" fill="#90caf9" stroke="#fff" stroke-width="2"/>
+                    <path d="M50 70 L38 105 L55 80 L62 105 L75 70" fill="#ffeb3b" stroke="#fff" stroke-width="3"/>
+                </svg>`
+            },
+            // 7. Spring Boot - Rocket
+            springboot: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48 15 L38 45 L48 55 L58 45 Z" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+                    <path d="M48 55 L43 75 L48 70 L53 75 Z" fill="#ff5722" stroke="#d84315" stroke-width="2"/>
+                    <circle cx="48" cy="35" r="5" fill="#fff"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M58 10 L45 45 L58 58 L71 45 Z" fill="#66bb6a" stroke="#fff" stroke-width="2"/>
+                    <path d="M58 58 L50 85 L58 78 L66 85 Z" fill="#ff7043" stroke="#fff" stroke-width="2"/>
+                    <path d="M50 85 L40 100 L66 100 Z" fill="#ffab91" stroke="#fff" stroke-width="1.5"/>
+                    <circle cx="58" cy="35" r="7" fill="#fff"/>
+                </svg>`
+            },
+            // 8. PostgreSQL - Elephant
+            postgresql: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 40 Q30 20 50 20 Q70 20 70 40 L70 70 Q70 85 50 85 Q30 85 30 70 Z" fill="#336791" stroke="#1e4d6e" stroke-width="2"/>
+                    <circle cx="40" cy="35" r="5" fill="#fff"/>
+                    <circle cx="60" cy="35" r="5" fill="#fff"/>
+                    <path d="M70 55 Q85 50 80 60" stroke="#336791" stroke-width="4" fill="none"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 45 Q35 20 58 20 Q82 20 82 45 L82 80 Q82 100 58 100 Q35 100 35 80 Z" fill="#4a90d9" stroke="#fff" stroke-width="2"/>
+                    <circle cx="46" cy="38" r="7" fill="#fff"/>
+                    <circle cx="70" cy="38" r="7" fill="#fff"/>
+                    <path d="M82 65 Q100 55 95 70" stroke="#4a90d9" stroke-width="6" fill="none"/>
+                </svg>`
+            },
+            // 9. HTML/CSS - Tag Brackets
+            html: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 30 L35 50 L20 70" stroke="#e34c26" stroke-width="6" fill="none"/>
+                    <path d="M80 30 L65 50 L80 70" stroke="#2196f3" stroke-width="6" fill="none"/>
+                    <path d="M35 50 L65 50" stroke="#fff" stroke-width="3"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 35 L35 58 L15 80" stroke="#ff5722" stroke-width="8" fill="none"/>
+                    <path d="M100 35 L80 58 L100 80" stroke="#42a5f5" stroke-width="8" fill="none"/>
+                    <path d="M35 58 L80 58" stroke="#fff" stroke-width="4"/>
+                </svg>`
+            },
+            // 10. JavaScript - Curly Braces
+            js: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 20 Q20 20 20 35 L20 45 Q20 55 30 55" stroke="#f7df1e" stroke-width="5" fill="none"/>
+                    <path d="M70 20 Q80 20 80 35 L80 45 Q80 55 70 55" stroke="#f7df1e" stroke-width="5" fill="none"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 15 Q12 15 12 35 L12 50 Q12 65 25 65" stroke="#ffeb3b" stroke-width="7" fill="none"/>
+                    <path d="M90 15 Q103 15 103 35 L103 50 Q103 65 90 65" stroke="#ffeb3b" stroke-width="7" fill="none"/>
+                </svg>`
+            },
+            // 11. Node.js - Gear
+            nodejs: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="20" fill="#339933" stroke="#267326" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="8" fill="#267326"/>
+                    <path d="M50 25 L50 20 M50 75 L50 80 M25 50 L20 50 M75 50 L80 50 M32 32 L28 28 M68 68 L72 72 M32 68 L28 72 M68 32 L72 28" stroke="#339933" stroke-width="5"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="58" cy="58" r="28" fill="#4caf50" stroke="#fff" stroke-width="3"/>
+                    <circle cx="58" cy="58" r="12" fill="#2e7d32"/>
+                    <path d="M58 25 L58 18 M58 91 L58 98 M25 58 L18 58 M91 58 L98 58 M35 35 L30 30 M81 81 L86 86 M35 81 L30 86 M81 35 L86 30" stroke="#4caf50" stroke-width="7"/>
+                </svg>`
+            },
+            // 12. Linux - Penguin
+            linux: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="48" cy="55" rx="20" ry="25" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+                    <ellipse cx="48" cy="40" rx="15" ry="12" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+                    <circle cx="40" cy="38" r="3" fill="#fff"/>
+                    <circle cx="56" cy="38" r="3" fill="#fff"/>
+                    <path d="M35 65 L48 75 L61 65" stroke="#fcc624" stroke-width="4" fill="#fcc624"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="58" cy="65" rx="28" ry="32" fill="#222" stroke="#fcc624" stroke-width="3"/>
+                    <ellipse cx="58" cy="45" rx="20" ry="16" fill="#222" stroke="#fcc624" stroke-width="3"/>
+                    <circle cx="48" cy="43" r="5" fill="#fff"/>
+                    <circle cx="68" cy="43" r="5" fill="#fff"/>
+                    <path d="M40 78 L58 92 L76 78" stroke="#ffeb3b" stroke-width="6" fill="#ffeb3b"/>
+                </svg>`
+            },
+            // 13. Docker - Whale with containers
+            docker: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 50 Q20 30 50 30 Q80 30 80 50 L80 70 Q80 80 50 80 Q20 80 20 70 Z" fill="#2496ed" stroke="#1a7ac0" stroke-width="2"/>
+                    <rect x="30" y="20" width="15" height="15" fill="#fff"/>
+                    <rect x="50" y="20" width="15" height="15" fill="#fff"/>
+                    <rect x="70" y="25" width="10" height="10" fill="#fff"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 60 Q20 35 58 35 Q95 35 95 60 L95 85 Q95 98 58 98 Q20 98 20 85 Z" fill="#42a5f5" stroke="#fff" stroke-width="3"/>
+                    <rect x="30" y="20" width="20" height="20" fill="#fff" rx="2"/>
+                    <rect x="55" y="20" width="20" height="20" fill="#fff" rx="2"/>
+                    <rect x="80" y="28" width="15" height="12" fill="#fff" rx="2"/>
+                </svg>`
+            },
+            // 14. Git - Branch
+            git: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="8" fill="#f05032" stroke="#d13a20" stroke-width="2"/>
+                    <circle cx="60" cy="50" r="8" fill="#f05032" stroke="#d13a20" stroke-width="2"/>
+                    <circle cx="30" cy="70" r="8" fill="#f05032" stroke="#d13a20" stroke-width="2"/>
+                    <path d="M30 38 L30 62 M30 38 Q30 40 45 45 L52 48" stroke="#f05032" stroke-width="3"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="35" cy="35" r="12" fill="#ff5722" stroke="#fff" stroke-width="3"/>
+                    <circle cx="75" cy="60" r="12" fill="#ff5722" stroke="#fff" stroke-width="3"/>
+                    <circle cx="35" cy="90" r="12" fill="#ff5722" stroke="#fff" stroke-width="3"/>
+                    <path d="M35 47 L35 78 M35 47 Q35 50 55 56 L65 58" stroke="#ff5722" stroke-width="5"/>
+                </svg>`
+            },
+            // 15. Maven - Wizard Hat
+            maven: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48 15 L20 60 L76 60 Z" fill="#c71a36" stroke="#8b1228" stroke-width="2"/>
+                    <path d="M20 60 L76 60 L70 80 L26 80 Z" fill="#1a1a2e" stroke="#8b1228" stroke-width="2"/>
+                    <circle cx="48" cy="35" r="4" fill="#ffd700"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M58 15 L20 70 L96 70 Z" fill="#e53935" stroke="#fff" stroke-width="3"/>
+                    <path d="M20 70 L96 70 L85 95 L31 95 Z" fill="#222" stroke="#fff" stroke-width="3"/>
+                    <circle cx="58" cy="38" r="6" fill="#ffeb3b"/>
+                    <path d="M48 10 L58 5 L68 10" stroke="#ffeb3b" stroke-width="3" fill="none"/>
+                </svg>`
+            },
+            // 16. Test - Shield with Check
+            test: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M48 15 L75 30 L75 65 Q75 85 48 95 Q21 85 21 65 L21 30 Z" fill="#25c2a0" stroke="#1a9e80" stroke-width="2"/>
+                    <path d="M35 55 L45 65 L65 40" stroke="#fff" stroke-width="5" fill="none"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M58 15 L95 35 L95 78 Q95 100 58 115 Q21 100 21 78 L21 35 Z" fill="#4caf50" stroke="#fff" stroke-width="3"/>
+                    <path d="M38 65 L52 80 L80 48" stroke="#fff" stroke-width="8" fill="none"/>
+                </svg>`
+            },
+            // 17. VSCode - Code Window
+            vscode: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="15" y="15" width="67" height="70" fill="#007acc" stroke="#005a9e" stroke-width="2" rx="3"/>
+                    <rect x="20" y="25" width="57" height="8" fill="#1e1e1e"/>
+                    <rect x="20" y="38" width="30" height="6" fill="#1e1e1e"/>
+                    <rect x="20" y="49" width="45" height="6" fill="#1e1e1e"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="15" width="95" height="90" fill="#1e88e5" stroke="#fff" stroke-width="3" rx="4"/>
+                    <rect x="18" y="30" width="78" height="10" fill="#1a1a2e"/>
+                    <rect x="18" y="48" width="45" height="8" fill="#1a1a2e"/>
+                    <rect x="18" y="64" width="65" height="8" fill="#1a1a2e"/>
+                </svg>`
+            },
+            // 18. Bash - Terminal Dollar
+            bash: {
+                pointer: `<svg width="48" height="48" viewBox="0 0 97 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="77" height="80" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+                    <path d="M20 30 L35 40 L20 50" stroke="#4eaa25" stroke-width="4" fill="none"/>
+                    <text x="42" y="45" fill="#4eaa25" font-size="28" font-family="monospace" font-weight="bold">$</text>
+                    <rect x="48" y="55" width="30" height="6" fill="#4eaa25"/>
+                </svg>`,
+                hover: `<svg width="48" height="48" viewBox="0 0 116 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="100" height="105" fill="#111" stroke="#4caf50" stroke-width="3"/>
+                    <path d="M20 40 L42 55 L20 70" stroke="#66bb6a" stroke-width="6" fill="none"/>
+                    <text x="50" y="62" fill="#66bb6a" font-size="40" font-family="monospace" font-weight="bold">$</text>
+                    <rect x="58" y="78" width="40" height="8" fill="#66bb6a"/>
+                </svg>`
+            }
+        };
+
+        // Build skill cards
+        const grid = document.getElementById('skillsGrid');
+        const cursorEl = document.getElementById('customCursor');
+
+        skillsData.skills.forEach(skill => {
+            const iconKey = skill.icon;
+            const percentClass = `percent-${iconKey}`;
+
+            const card = document.createElement('div');
+            card.className = 'skill-card';
+            card.dataset.cursor = iconKey;
+            card.innerHTML = `
+                <div class="icon-wrap">
+                    <div class="cursor-icon">
+                        ${cursorSVGs[iconKey]?.pointer || cursorSVGs['bash'].pointer}
+                    </div>
+                    <div>
+                        <h3>${skill.name}</h3>
+                        <small style="color:#aaa; font-size:0.7rem;">${skill.percent}%</small>
+                    </div>
+                </div>
+                <div class="percent-bar">
+                    <div class="percent-fill ${percentClass}" style="width:${skill.percent}%"></div>
+                </div>
+                <div class="tags">
+                    ${skill.titles.map(t => `<span class="tag">${t}</span>`).join('')}
+                </div>
+            `;
+
+            // Mouse events for custom cursor
+            card.addEventListener('mouseenter', (e) => {
+                const key = card.dataset.cursor;
+                cursorEl.innerHTML = cursorSVGs[key]?.hover || cursorSVGs['bash'].hover;
+                cursorEl.classList.add('active', 'hovering');
+                document.body.style.cursor = 'none';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                cursorEl.classList.remove('active', 'hovering');
+                document.body.style.cursor = 'default';
+            });
+
+            grid.appendChild(card);
+        });
+
+        // Track mouse for custom cursor
+        document.addEventListener('mousemove', (e) => {
+            cursorEl.style.left = e.clientX + 'px';
+            cursorEl.style.top = e.clientY + 'px';
+        });
+
+        // Hide default cursor on cards
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('.skill-card')) {
+                document.body.style.cursor = 'none';
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (!e.target.closest('.skill-card')) {
+                document.body.style.cursor = 'default';
+                cursorEl.classList.remove('active', 'hovering');
+            }
+        });
+
+        console.log('🎮 Pixel Cursors Ready! 18 unique skill cursors loaded.');
+    </script>
+</body>
+
+</html>

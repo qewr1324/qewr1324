@@ -1,247 +1,181 @@
-let currentLang = 'en';
-let articlesData = {};
-let siteTexts = {};
-let currentArticleId = null;
-let searchQuery = '';
+(function () {
+	const progressCircle = document.getElementById("progressCircle");
+	const percentDisplay = document.getElementById("percentDisplay");
+	const skillList = document.getElementById("skillList");
+	const projectList = document.getElementById("projectList");
+	const tooltip = document.getElementById("skillTooltip");
+	const tooltipSkillName = document.getElementById("tooltipSkillName");
+	const tooltipItems = document.getElementById("tooltipItems");
+	const circumference = 2 * Math.PI * 100;
 
-const gridContainer = document.getElementById('grid-container');
-const homeView = document.getElementById('home-view');
-const articleView = document.getElementById('article-view');
-const articleContent = document.getElementById('article-content');
-const searchInput = document.getElementById('search-input');
-const searchClear = document.getElementById('search-clear');
+	let rafId = null;
 
-// Load data from routes.json
-async function loadData() {
-    try {
-        const response = await fetch('routes.json');
-        if (!response.ok) throw new Error('Failed to load routes.json');
-        const data = await response.json();
-        articlesData = data.articles;
-        siteTexts = data.siteTexts;
-        
-        // Apply initial language
-        applyLanguage();
-        renderGrid();
-    } catch (error) {
-        console.error('Error loading data:', error);
-        gridContainer.innerHTML = `
-            <div style="color: #ef4444; padding: 40px; text-align: center; grid-column: 1/-1;">
-                ❌ Error loading articles data. Please check routes.json file.
-                <br><small>${error.message}</small>
-            </div>
-        `;
-    }
-}
+	function setProgress(percent) {
+		const offset = circumference - (percent / 100) * circumference;
+		progressCircle.style.strokeDashoffset = offset;
+		percentDisplay.textContent = percent + "٪";
+	}
 
-// Apply language settings
-function applyLanguage() {
-    document.documentElement.lang = currentLang;
-    document.documentElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
-    document.body.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+	async function loadJSON(url) {
+		try {
+			const response = await fetch(url);
+			if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+			return await response.json();
+		} catch (error) {
+			console.error(`❌ خطا در بارگذاری ${url}:`, error);
+			return null;
+		}
+	}
 
-    const texts = siteTexts[currentLang];
-    if (!texts) return;
+	function renderSkills(skillsData) {
+		if (!skillsData || !skillsData.skills) {
+			skillList.innerHTML = '<div style="color:#94a3b8;padding:1rem;grid-column:1/-1;text-align:center;">مهارتی یافت نشد</div>';
+			return;
+		}
 
-    document.getElementById('lang-toggle').innerText = texts.langCode;
-    document.getElementById('hero-title').innerText = texts.heroTitle;
-    document.getElementById('hero-subtitle').innerText = texts.heroSub;
-    document.getElementById('nav-home').innerText = texts.navHome;
-    document.getElementById('nav-about').innerText = texts.navAbout;
-    document.getElementById('nav-games').innerText = texts.navGames;
-    document.getElementById('back-text').innerText = texts.backBtn;
-    document.getElementById('footer-name').innerText = texts.footerName;
-    
-    // Update search placeholder
-    if (searchInput) {
-        searchInput.placeholder = texts.searchPlaceholder || 'Search by tags...';
-    }
-}
+		skillList.innerHTML = "";
+		skillsData.skills.forEach((skill) => {
+			const item = document.createElement("div");
+			item.className = "skill-item";
+			item.setAttribute("data-percent", skill.percent);
+			item.setAttribute("data-skill-name", skill.name);
+			item.setAttribute("data-titles", JSON.stringify(skill.titles || []));
 
-// Toggle Language
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'fa' : 'en';
-    applyLanguage();
+			const iconSpan = document.createElement("span");
+			iconSpan.className = "skill-icon";
+			iconSpan.innerHTML = `<i class="fab ${skill.icon}"></i>`;
 
-    // If Current Article, Loading This...
-    if (currentArticleId && articleView.style.display !== 'none') {
-        loadArticle(currentArticleId);
-    } else {
-        // If searching Is Enable, Search Again.
-        // Clear search and render grid with new language
-        if (searchInput) {
-            searchInput.value = '';
-            searchQuery = '';
-            if (searchClear) {
-                searchClear.style.display = 'none';
-            }
-        }
-        renderGrid();
-    }
-}
+			const nameSpan = document.createElement("span");
+			nameSpan.className = "skill-name";
+			nameSpan.textContent = skill.name;
 
-// Search Articles
-function searchArticles() {
-    searchQuery = searchInput.value.trim().toLowerCase();
-    
-    // Show/hide clear button
-    if (searchClear) {
-        searchClear.style.display = searchQuery ? 'block' : 'none';
-    }
-    
-    const data = articlesData[currentLang];
-    if (!data) return;
+			const percentSpan = document.createElement("span");
+			percentSpan.className = "skill-percent";
+			percentSpan.textContent = skill.percent + "٪";
 
-    // If Search Is Empty, Show All
-    if (!searchQuery) {
-        renderGrid();
-        return;
-    }
+			item.appendChild(iconSpan);
+			item.appendChild(nameSpan);
+			item.appendChild(percentSpan);
 
-    // Filter Arcticles By Tags
-    const filteredData = data.filter(article => {
-        if (!article.tags || !Array.isArray(article.tags)) return false;
-        return article.tags.some(tag => tag.toLowerCase().includes(searchQuery));
-    });
-    
-    renderGrid(filteredData);
-}
+			let lastEvent = null;
 
-// Clear Search
-function clearSearch() {
-    searchInput.value = '';
-    searchQuery = '';
-    if (searchClear) {
-        searchClear.style.display = 'none';
-    }
-    renderGrid();
-    searchInput.focus();
-}
+			item.addEventListener("mouseenter", function (e) {
+				const p = parseInt(this.getAttribute("data-percent"), 10);
+				if (!isNaN(p)) setProgress(p);
 
-// Render Grid
-function renderGrid(filteredData) {
-    gridContainer.innerHTML = '';
-    const data = filteredData || articlesData[currentLang];
-    
-    if (!data || data.length === 0) {
-        const noResultsText = siteTexts[currentLang]?.noResults || 'No articles found matching your search';
-        gridContainer.innerHTML = `
-            <div style="color: #9e9e9e; padding: 40px; text-align: center; grid-column: 1/-1;">
-                📝 ${noResultsText}
-            </div>
-        `;
-        return;
-    }
+				const skillName = this.getAttribute("data-skill-name");
+				const titles = JSON.parse(this.getAttribute("data-titles") || "[]");
+				showTooltip(e, skillName, titles);
+				lastEvent = e;
+			});
 
-    data.forEach(article => {
-        const card = document.createElement('div');
-        card.className = 'article-card';
-        card.onclick = () => loadArticle(article.id);
+			item.addEventListener("mousemove", function (e) {
+				lastEvent = e;
+				if (rafId) return;
 
-        const imgSrc = article.thumb || 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
-        
-        // let imgSrc = article.thumb;
-        
-        // if (imgSrc && imgSrc.startsWith('images/')) {
-        //     imgSrc = 'assets/' + imgSrc;
-        // }
+				rafId = requestAnimationFrame(() => {
+					if (lastEvent) {
+						updateTooltipPosition(lastEvent);
+					}
+					rafId = null;
+				});
+			});
 
-        // if (!imgSrc) {
-        //     imgSrc = 'https://via.placeholder.com/300x200/2d2d2d/9e9e9e?text=No+Image';
-        // }
-        
-        // Create Tags
-        let tagsHtml = '';
-        if (article.tags && Array.isArray(article.tags)) {
-            tagsHtml = '<div class="card-tags">' + 
-                article.tags.map(tag => `<span class="card-tag">#${tag}</span>`).join('') + 
-                '</div>';
-        }
+			item.addEventListener("mouseleave", function () {
+				if (rafId) {
+					cancelAnimationFrame(rafId);
+					rafId = null;
+				}
+				setProgress(0);
+				hideTooltip();
+				lastEvent = null;
+			});
 
-        card.innerHTML = `
-            <img src="${imgSrc}" alt="${article.title}" class="card-img" loading="lazy">
-            <div class="card-content">
-                <h3>${article.title}</h3>
-                <p>${article.excerpt}</p>
-                ${tagsHtml}
-            </div>
-        `;
-        gridContainer.appendChild(card);
-    });
-}
+			skillList.appendChild(item);
+		});
+	}
 
-// Load Article
-async function loadArticle(id) {
-    currentArticleId = id;
-    
-    const article = articlesData[currentLang]?.find(a => a.id === id);
-    if (!article) {
-        articleContent.innerHTML = `<div style="color: #ef4444; padding: 20px;">❌ Article not found</div>`;
-        return;
-    }
+	function renderProjects(projectsData) {
+		if (!projectsData || !projectsData.projects) {
+			projectList.innerHTML = '<div style="color:#94a3b8;padding:0.5rem;width:100%;text-align:center;">اطلاعاتی یافت نشد</div>';
+			return;
+		}
 
-    // Hide search bar in article view
-    const searchContainer = document.querySelector('.search-container');
-    if (searchContainer) {
-        searchContainer.style.display = 'none';
-    }
+		projectList.innerHTML = "";
+		projectsData.projects.forEach((proj) => {
+			const block = document.createElement("div");
+			block.className = "extra-block";
+			block.innerHTML = `
+              <i class="fas ${proj.icon}"></i>
+              <span>${proj.label}</span>
+              <span class="highlight">${proj.value}</span>
+            `;
+			projectList.appendChild(block);
+		});
+	}
 
-    homeView.style.display = 'none';
-    articleView.style.display = 'block';
+	function showTooltip(event, skillName, titles) {
+		tooltipSkillName.textContent = skillName;
+		tooltipItems.innerHTML = "";
 
-    try {
-        const response = await fetch(article.htmlFile);
-        if (!response.ok) throw new Error("Article file not found");
-        const htmlContent = await response.text();
+		if (titles && titles.length > 0) {
+			titles.forEach((title, index) => {
+				const span = document.createElement("span");
+				span.className = "tooltip-item";
+				if (index === 0) span.classList.add("highlight");
+				span.textContent = title;
+				tooltipItems.appendChild(span);
+			});
+		} else {
+			const span = document.createElement("span");
+			span.className = "tooltip-item";
+			span.textContent = "— موردی ثبت نشده —";
+			tooltipItems.appendChild(span);
+		}
 
-        articleContent.innerHTML = `
-            <div style="text-align: center; margin-bottom: 24px;">
-                <h2 style="font-size: 2rem; color: #ffffff;">${article.title}</h2>
-                <p style="color: #9e9e9e;">${article.tags ? article.tags.join(' • ') : ''}</p>
-            </div>
-            <img src="${article.fullImage}" alt="${article.title}" class="article-full-img" loading="lazy">
-            <div class="article-body">
-                ${htmlContent}
-            </div>
-        `;
+		tooltip.classList.add("visible");
+		updateTooltipPosition(event);
+	}
 
-        // Re-run Prism for syntax highlighting
-        if (window.Prism) {
-            Prism.highlightAll();
-        }
-    } catch (error) {
-        articleContent.innerHTML = `
-            <div style="color: #ef4444; padding: 20px;">
-                ❌ Error loading article: ${error.message}
-            </div>
-        `;
-    }
-}
+	function updateTooltipPosition(event) {
+		const tooltipRect = tooltip.getBoundingClientRect();
+		const windowWidth = window.innerWidth;
+		const windowHeight = window.innerHeight;
 
-// Go Home
-function goHome() {
-    currentArticleId = null;
-    articleView.style.display = 'none';
-    homeView.style.display = 'block';
-    
-    // Show search bar again
-    const searchContainer = document.querySelector('.search-container');
-    if (searchContainer) {
-        searchContainer.style.display = 'block';
-    }
-    
-    // Clear search and render grid
-    if (searchInput) {
-        searchInput.value = '';
-        searchQuery = '';
-        if (searchClear) {
-            searchClear.style.display = 'none';
-        }
-    }
-    
-    renderGrid();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+		let left = event.clientX - tooltipRect.width - 15;
+		let top = event.clientY + 15;
 
-// Initialize - Load data first
-loadData();
+		if (left < 10) {
+			left = event.clientX + 15;
+		}
+
+		if (left + tooltipRect.width > windowWidth - 10) {
+			left = event.clientX - tooltipRect.width - 15;
+		}
+
+		if (top + tooltipRect.height > windowHeight - 10) {
+			top = event.clientY - tooltipRect.height - 15;
+		}
+
+		if (top < 10) {
+			top = event.clientY + 15;
+		}
+
+		tooltip.style.left = left + "px";
+		tooltip.style.top = top + "px";
+	}
+
+	function hideTooltip() {
+		tooltip.classList.remove("visible");
+	}
+
+	async function init() {
+		const [skillsData, projectsData] = await Promise.all([loadJSON("skills.json"), loadJSON("projects.json")]);
+
+		renderSkills(skillsData);
+		renderProjects(projectsData);
+		setProgress(0);
+	}
+
+	init();
+})();

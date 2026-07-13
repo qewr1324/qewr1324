@@ -1,0 +1,6 @@
+<svg class="cursor-java" width="42" height="42" viewBox="0 0 97 107">
+  <path d="M30 20 L30 50 L60 50 L60 20 Z" fill="#6F4E37"/>
+  <path d="M60 25 L70 25 L70 45 L60 45 Z" fill="#6F4E37"/>
+  <path d="M35 15 L35 5 L40 10 L45 5 L45 15" fill="none" stroke="#4A90D9" stroke-width="2"/>
+  <circle cx="45" cy="35" r="5" fill="#3B271D"/>
+</svg>
