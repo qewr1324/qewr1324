@@ -1,20 +1,12 @@
+// assets/js/script.js (بدون تغییر)
 (function () {
-	const progressCircle = document.getElementById("progressCircle");
-	const percentDisplay = document.getElementById("percentDisplay");
 	const skillList = document.getElementById("skillList");
 	const projectList = document.getElementById("projectList");
 	const tooltip = document.getElementById("skillTooltip");
 	const tooltipSkillName = document.getElementById("tooltipSkillName");
 	const tooltipItems = document.getElementById("tooltipItems");
-	const circumference = 2 * Math.PI * 100;
 
 	let rafId = null;
-
-	function setProgress(percent) {
-		const offset = circumference - (percent / 100) * circumference;
-		progressCircle.style.strokeDashoffset = offset;
-		percentDisplay.textContent = percent + "٪";
-	}
 
 	async function loadJSON(url) {
 		try {
@@ -37,32 +29,24 @@
 		skillsData.skills.forEach((skill) => {
 			const item = document.createElement("div");
 			item.className = "skill-item";
-			item.setAttribute("data-percent", skill.percent);
 			item.setAttribute("data-skill-name", skill.name);
 			item.setAttribute("data-titles", JSON.stringify(skill.titles || []));
 
 			const iconSpan = document.createElement("span");
 			iconSpan.className = "skill-icon";
-			iconSpan.innerHTML = `<i class="fab ${skill.icon}"></i>`;
+			const iconClass = skill.icon || "fa-code";
+			iconSpan.innerHTML = `<i class="fab ${iconClass}"></i>`;
 
 			const nameSpan = document.createElement("span");
 			nameSpan.className = "skill-name";
 			nameSpan.textContent = skill.name;
 
-			const percentSpan = document.createElement("span");
-			percentSpan.className = "skill-percent";
-			percentSpan.textContent = skill.percent + "٪";
-
 			item.appendChild(iconSpan);
 			item.appendChild(nameSpan);
-			item.appendChild(percentSpan);
 
 			let lastEvent = null;
 
 			item.addEventListener("mouseenter", function (e) {
-				const p = parseInt(this.getAttribute("data-percent"), 10);
-				if (!isNaN(p)) setProgress(p);
-
 				const skillName = this.getAttribute("data-skill-name");
 				const titles = JSON.parse(this.getAttribute("data-titles") || "[]");
 				showTooltip(e, skillName, titles);
@@ -86,7 +70,6 @@
 					cancelAnimationFrame(rafId);
 					rafId = null;
 				}
-				setProgress(0);
 				hideTooltip();
 				lastEvent = null;
 			});
@@ -174,7 +157,6 @@
 
 		renderSkills(skillsData);
 		renderProjects(projectsData);
-		setProgress(0);
 	}
 
 	init();
