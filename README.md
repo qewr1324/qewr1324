@@ -1,12 +1,12 @@
 
-<p align="center">  
+<!-- <p align="center">  
   Hi There 👋
   I'm Amir-Hussein-Muhammadi-Fard 🐱‍🏍
-</p>
+</p> -->
 
-<p align="center">  
+<!-- <p align="center">  
   —————————————————     —————————————————     —————————————————
-</p>
+</p> -->
 
 
 <!--
@@ -41,21 +41,57 @@ Here are some ideas to get you started:
   <img src="https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white">
   <!-- Java Version -->
   <img src="https://img.shields.io/badge/-1.8-abcdef?style=flat&logo=coffeescript&logoColor=white">
+  <!-- Spring -->
+  <!-- <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white"> -->
   <!-- Spring Boot -->
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white">
+  <!-- Spring Security -->
+  <!-- <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=springsecurity&logoColor=white"> -->
+  <!-- Hibernate -->
+  <!-- <img src="https://img.shields.io/badge/Hibernate-59666C?style=flat&logo=hibernate&logoColor=white"> -->
   <!-- Maven -->
   <img src="https://img.shields.io/badge/Maven-C71A36?style=flat&logo=apachemaven&logoColor=white">
+  <!-- Mockito -->
+  <!-- <img src="https://img.shields.io/badge/Mockito-78A641?style=flat&logo=testing-library&logoColor=white"> -->
+  <!-- MySQL -->
+  <!-- <img src="https://img.shields.io/badge/MySQL-005C84?style=flat&logo=mysql&logoColor=white"> -->
   <!-- Gradle -->
   <!-- <img src="https://img.shields.io/badge/JUnit-25A162?style=flat&logo=junit5&logoColor=white"> -->
   <!-- JUnit5 -->
   <!-- <img src="https://img.shields.io/badge/JUnit-25A162?style=flat&logo=junit5&logoColor=white"> -->
   <!-- PostgreSQL -->
-  <!-- <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"> -->
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white">
   <!-- Git -->
-  <!-- <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white"> -->
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white">
   <!-- Docker -->
   <!-- <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"> -->
+  <!-- Linux -->
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black">
+  <!-- Debian -->
+  <!-- <img src="https://img.shields.io/badge/Debian-D70A53?style=flat&logo=debian&logoColor=white"> -->
+  <!-- MongoDB -->
+  <!-- <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=mongodb&logoColor=white"> -->
+  <!-- Redis -->
+  <!-- <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=flat&logo=redis&logoColor=white"> -->
+  <!-- NodeJS -->
+  <!-- <img src="https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white"> -->
+  <!-- JavaScript -->
+  <!-- <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E"> -->
+  <!-- Rust -->
+  <!-- <img src="https://img.shields.io/badge/rust-%23000000.svg?style=flat&logo=rust&logoColor=white"> -->
 </p>
+
+<p align="center">
+  <samp>
+    <a href="https://qewr1324.github.io/qewr1324/">me</a> .
+    <!-- <a href="https://qewr1324.github.io/qewr1324/book">book</a> . -->
+    <a href="mailto:naiad.arts.studio@gmail.com">mail</a>
+  </samp>
+</p>
+
+<!--
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+-->
 
 <!--
   [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](https://www.naiad.art.studio@gmail.com)<br>
