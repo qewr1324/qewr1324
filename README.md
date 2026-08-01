@@ -79,13 +79,23 @@ Here are some ideas to get you started:
   <!-- <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E"> -->
   <!-- Rust -->
   <!-- <img src="https://img.shields.io/badge/rust-%23000000.svg?style=flat&logo=rust&logoColor=white"> -->
+  <!-- Oracle -->
+  <!-- <img src="https://img.shields.io/badge/Oracle-F80000?style=flat&logo=data:image/    svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIvPjwvc3ZnPg=="> -->
+  <!-- MariaDB -->
+  <!-- <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=mariadb&logoColor=white"> -->
+  <!-- Apache Kafka -->
+  <!-- <img src="https://img.shields.io/badge/Apache%20Kafka-000?style=flat&logo=apachekafka&logoColor=white"> -->
+  <!-- RabbitMQ -->
+  <!-- <img src="https://img.shields.io/badge/Rabbitmq-FF6600?style=flat&logo=rabbitmq&logoColor=white"> -->
 </p>
 
 <p align="center">
   <samp>
     <a href="https://qewr1324.github.io/qewr1324/">me</a> .
     <!-- <a href="https://qewr1324.github.io/qewr1324/book">book</a> . -->
-    <a href="mailto:naiad.arts.studio@gmail.com">mail</a>
+    <a href="mailto:naiad.arts.studio@gmail.com">mail</a> .
+    <a href="https://B2n.ir/my-cafebazaar">game</a>
+    <!-- <a href="https://B2n.ir/sketchfab">art</a> -->
   </samp>
 </p>
 
