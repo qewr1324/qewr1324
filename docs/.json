@@ -1,0 +1,112 @@
+{
+	"skills": [
+		{
+			"name": "Java SE",
+			"percent": 80,
+			"icon": "fa-java",
+			"titles": ["Condition", "OOP", "JDBC", "Collections", "Streams", "Lambda", "Multithreading"]
+		},
+		{
+			"name": "Spring",
+			"percent": 70,
+			"icon": "fa-envira",
+			"titles": ["IoC", "DI", "AOP", "Spring Data", "Security", "Testing"]
+		},
+		{
+			"name": "Servlet/JSP",
+			"percent": 65,
+			"icon": "fa-code",
+			"titles": ["Servlets", "JSP", "Filters", "Listeners", "Session Management"]
+		},
+		{
+			"name": "Spring Core",
+			"percent": 75,
+			"icon": "fa-cube",
+			"titles": ["IoC Container", "Bean Lifecycle", "XML Config", "Annotation Config", "Component Scan"]
+		},
+		{
+			"name": "Spring MVC",
+			"percent": 72,
+			"icon": "fa-layer-group",
+			"titles": ["Controllers", "View Resolvers", "Model", "Data Binding", "Validation"]
+		},
+		{
+			"name": "Spring REST",
+			"percent": 68,
+			"icon": "fa-cloud",
+			"titles": ["REST APIs", "JSON", "Request/Response", "Error Handling", "Swagger"]
+		},
+		{
+			"name": "Spring Boot",
+			"percent": 78,
+			"icon": "fa-rocket",
+			"titles": ["Auto-Configuration", "Starter POMs", "Actuator", "Spring Boot Test", "Profiles"]
+		},
+		{
+			"name": "PostgreSQL",
+			"percent": 60,
+			"icon": "fa-database",
+			"titles": ["CRUD", "Joins", "Indexes", "Transactions", "Views", "Stored Procedures"]
+		},
+		{
+			"name": "HTML/CSS",
+			"percent": 85,
+			"icon": "fa-html5",
+			"titles": ["HTML5 Semantic", "CSS3 Flexbox", "Responsive Design", "Animations"]
+		},
+		{
+			"name": "JavaScript",
+			"percent": 60,
+			"icon": "fa-js",
+			"titles": ["ES6+", "Promises", "Async/Await"]
+		},
+		{
+			"name": "Node.js",
+			"percent": 55,
+			"icon": "fa-node-js",
+			"titles": ["http", "restAPI", "NPM", "Express.js", "Middleware"]
+		},
+		{
+			"name": "Linux",
+			"percent": 50,
+			"icon": "fa-linux",
+			"titles": ["Command Line", "File Permissions", "Bash Scripting", "SSH", "Process Management"]
+		},
+		{
+			"name": "Docker",
+			"percent": 45,
+			"icon": "fa-docker",
+			"titles": ["Dockerfile", "Image", "Container", "Docker Compose", "Volume", "Network"]
+		},
+		{
+			"name": "Git",
+			"percent": 80,
+			"icon": "fa-git",
+			"titles": ["config", "stage", "commit", "branch", "fork", "push", "pull", "PR", "gh"]
+		},
+		{
+			"name": "Maven",
+			"percent": 90,
+			"icon": "fa-maxcdn",
+			"titles": ["pom", "run", "package", "clean", "test", "..."]
+		},
+		{
+			"name": "Test",
+			"percent": 70,
+			"icon": "fa-maxcdn",
+			"titles": ["JUnit"]
+		},
+		{
+			"name": "VSCode",
+			"percent": 90,
+			"icon": "fa-file",
+			"titles": ["config", "database", "shortcuts", "debug"]
+		},
+		{
+			"name": "Bash",
+			"percent": 90,
+			"icon": "fa-terminal",
+			"titles": ["config", "database", "shortcuts", "debug"]
+		}
+	]
+}
