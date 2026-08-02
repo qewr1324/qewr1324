@@ -7,12 +7,6 @@
 			"titles": ["Fundamental", "OOP", "Exception Handling", "Generics", "Collections", "Stream API", "Method Reference", "JDBC", "Maven"]
 		},
 		{
-			"name": "Spring Framework",
-			"percent": 75,
-			"icon": "fa-envira",
-			"titles": ["IoC", "DI", "AOP", "Spring Data JPA", "Hibernate", "Thymeleaf", "Security"]
-		},
-		{
 			"name": "Spring Boot",
 			"percent": 70,
 			"icon": "fa-rocket",
@@ -34,7 +28,7 @@
 			"name": "HTML/CSS",
 			"percent": 70,
 			"icon": "fa-html5",
-			"titles": ["HTML5 Semantic", "CSS3 Flexbox", "Responsive Design", "CSS Grid"]
+			"titles": ["HTML5 Semantic", "CSS3 Flexbox", "Responsive Design"]
 		},
 		{
 			"name": "JavaScript",
