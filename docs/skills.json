@@ -9,19 +9,19 @@
 		{
 			"name": "Spring Boot",
 			"percent": 70,
-			"icon": "fa-rocket",
+			"icon": "fa-envira",
 			"titles": ["Auto-Configuration", "Starter POMs", "Spring Boot Test", "Profiles", "Actuator"]
 		},
 		{
 			"name": "JPA/Hibernate",
 			"percent": 75,
-			"icon": "fa-database",
+			"icon": "fa-pagelines",
 			"titles": ["Entity Mapping", "Relationships", "JPQL", "Criteria API", "Caching", "Transactions"]
 		},
 		{
 			"name": "PostgreSQL",
 			"percent": 60,
-			"icon": "fa-database",
+			"icon": "fa-stack-exchange",
 			"titles": ["CRUD Operations", "Joins"]
 		},
 		{
@@ -69,7 +69,7 @@
 		{
 			"name": "VSCode",
 			"percent": 90,
-			"icon": "fa-file",
+			"icon": "fa-angellist",
 			"titles": ["Extensions", "Debugging", "Shortcuts", "Database Integration", "Git Integration"]
 		}
 	]
