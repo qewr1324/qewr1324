@@ -55,6 +55,12 @@
 			"titles": ["Config", "Stage", "Commit", "Branch", "Fork", "Push", "Pull", "Pull Request", "GitHub", "Conventional Commits"]
 		},
 		{
+			"name": "Test",
+			"percent": 70,
+			"icon": "fa-maxcdn",
+			"titles": ["JUnit"]
+		},
+		{
 			"name": "Linux Essentials",
 			"percent": 50,
 			"icon": "fa-linux",
