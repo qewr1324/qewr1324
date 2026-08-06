@@ -7,16 +7,10 @@
 			"titles": ["Fundamental", "OOP", "Exception Handling", "Generics", "Collections", "Stream API", "Method Reference", "JDBC", "Maven"]
 		},
 		{
-			"name": "Spring Boot",
-			"percent": 70,
-			"icon": "fa-envira",
-			"titles": ["Auto-Configuration", "Starter POMs", "Spring Boot Test", "Profiles", "Actuator"]
-		},
-		{
 			"name": "JPA/Hibernate",
 			"percent": 75,
 			"icon": "fa-pagelines",
-			"titles": ["Entity Mapping", "Relationships", "JPQL", "Criteria API", "Caching", "Transactions"]
+			"titles": ["Entity Mapping", "Relationships", "JPQL", "Caching", "Transactions"]
 		},
 		{
 			"name": "PostgreSQL",
@@ -58,13 +52,13 @@
 			"name": "Test",
 			"percent": 70,
 			"icon": "fa-maxcdn",
-			"titles": ["JUnit"]
+			"titles": ["JUnit-Jupiter"]
 		},
 		{
 			"name": "Linux Essentials",
 			"percent": 50,
 			"icon": "fa-linux",
-			"titles": ["Command Line", "File Permissions", "Bash Scripting", "SSH", "Process Management"]
+			"titles": ["Command Line", "File Permissions"]
 		},
 		{
 			"name": "VSCode",
