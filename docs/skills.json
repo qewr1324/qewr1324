@@ -10,7 +10,7 @@
 			"name": "JPA/Hibernate",
 			"percent": 75,
 			"icon": "fa-pagelines",
-			"titles": ["Entity Mapping", "Relationships", "JPQL", "Caching", "Transactions"]
+			"titles": ["Entity Mapping", "Relationships", "JPQL", "Transactions"]
 		},
 		{
 			"name": "PostgreSQL",
@@ -22,7 +22,7 @@
 			"name": "HTML/CSS",
 			"percent": 70,
 			"icon": "fa-html5",
-			"titles": ["HTML5 Semantic", "CSS3 Flexbox", "Responsive Design"]
+			"titles": ["HTML5 Semantic", "CSS3 Flexbox"]
 		},
 		{
 			"name": "JavaScript",
