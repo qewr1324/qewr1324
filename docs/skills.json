@@ -7,10 +7,16 @@
 			"titles": ["Fundamental", "OOP", "Exception Handling", "Generics", "Collections", "Stream API", "Method Reference", "JDBC", "Maven"]
 		},
 		{
+			"name": "Java EE",
+			"percent": 85,
+			"icon": "fa-java",
+			"titles": ["Servlet"]
+		},
+		{
 			"name": "JPA/Hibernate",
 			"percent": 75,
 			"icon": "fa-pagelines",
-			"titles": ["Entity Mapping", "Relationships", "JPQL", "Transactions"]
+			"titles": ["Entity Mapping", "Relationships", "JPQL", "Transactions", "Inheritance"]
 		},
 		{
 			"name": "PostgreSQL",
