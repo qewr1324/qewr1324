@@ -7,16 +7,16 @@
 			"titles": ["Fundamental", "OOP", "Exception Handling", "Generics", "Collections", "Stream API", "Method Reference", "JDBC", "Maven"]
 		},
 		{
-			"name": "Java EE",
-			"percent": 85,
-			"icon": "fa-java",
-			"titles": ["Servlet"]
-		},
-		{
 			"name": "JPA/Hibernate",
 			"percent": 75,
 			"icon": "fa-pagelines",
 			"titles": ["Entity Mapping", "Relationships", "JPQL", "Transactions", "Inheritance"]
+		},
+		{
+			"name": "Spring Framework",
+			"percent": 85,
+			"icon": "fa-java",
+			"titles": ["Servlet", "@WebServlet", "@WebFilter", "@WebListener", "web.xml", "InitParam" ]
 		},
 		{
 			"name": "PostgreSQL",
@@ -28,7 +28,7 @@
 			"name": "HTML/CSS",
 			"percent": 70,
 			"icon": "fa-html5",
-			"titles": ["HTML5 Semantic", "CSS3 Flexbox"]
+			"titles": ["HTML5 Semantic", "CSS3 Flexbox", "Boot Strap"]
 		},
 		{
 			"name": "JavaScript",
@@ -46,7 +46,7 @@
 			"name": "Docker",
 			"percent": 45,
 			"icon": "fa-docker",
-			"titles": ["Dockerfile", "Image", "Container", "Docker Compose", "Volume", "Network"]
+			"titles": ["Dockerfile", "Image", "Container", "Volume", "Network"]
 		},
 		{
 			"name": "Git",
